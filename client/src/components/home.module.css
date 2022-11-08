@@ -1,0 +1,84 @@
+.main{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+
+.divPag {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .button {
+    margin-top: 80px;
+    margin-left: 8px;
+    justify-content: space-around;
+    text-align: left;
+	background-color:#12100f;
+	border-radius:10px;
+	border:1px solid #a5a6a8;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:16px;
+	padding:6px 10px;
+	text-decoration:none;
+	text-shadow:0px 0px 0px #d75518;
+}
+.button:hover {
+	background-color:#6d6d6d;
+}
+.button:active {
+	position:relative;
+	top:1px;
+}
+
+.buttonBuscar{
+    margin-left: 2px;
+    margin-top: 20px;
+    text-align: left;
+	background-color:#12100f;
+	border-radius:6px;
+	border:1px solid #a5a6a8;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:14px;
+	padding:6px 10px;
+	text-decoration:none;
+	text-shadow:0px 0px 0px #d75518;
+}
+.buttonBuscar:hover {
+	background-color:#6d6d6d;
+}
+
+.input{
+    margin-left: 8px;
+    background-color: none;
+    border: none;
+    font-size: 15px;
+    box-shadow: 0 2px 7px rgba(5, 4, 8, 0.397);
+    padding: 3px;
+    border-radius: 10px;
+    
+    }
+.inputBuscar{
+    border-radius:4px;
+    margin-left: 2px;
+    background-color: none;
+    border: none;
+    font-size: 15px;
+    box-shadow: 0 2px 7px rgba(5, 4, 8, 0.397);
+    padding: 3px;
+}
+
+.h1gif{
+	background-image:  url(https://upload.wikimedia.org/wikipedia/commons/9/96/Mundo_hecho_de_Banderas.gif);
+	transform-origin: center center;
+           animation: total 1.7s 1s steps(13, end) infinite;
+
+}

@@ -1,0 +1,50 @@
+body{
+    background-image: url("https://images.pexels.com/photos/335393/pexels-photo-335393.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1");
+    background-size: cover;
+     
+    background-repeat: no-repeat;
+    background-attachment:fixed;
+}
+
+.container{
+    display: flex;
+    flex-direction:column;
+    align-items:flex-start;
+    font-family: 'Roboto Mono', monospace;
+    border-radius: 10px;
+    padding: 40px;
+    margin: 0%;
+}
+
+.title{
+    text-align: center;
+    color: black;
+    font-size: 60px;
+}
+
+.boton{
+    padding: 15px;
+    border-radius: 10px;
+    text-decoration: none;
+    background-color: black;
+    color: white;
+    border: 3px solid rgb(255, 255, 255);
+    transition: 0.1s;
+}
+
+.boton:hover{
+    color: black;
+    border: 3px solid black;
+    background-color: white;
+    transform: scale(1.05);
+}
+
+.boton:active{
+    transform: scale(.95);
+}
+
+.copyright{
+    margin-top: 22.5%;
+    margin-left: -2%;
+    color: black;
+}
