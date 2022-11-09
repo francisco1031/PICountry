@@ -10,7 +10,7 @@ export const Paginado= ({porPagina, allCountries, paginado, previousPage, nextPa
 
     return(
        
-
+    //lista numerica
         <nav className="contUl">
         <ul className="paginadoCont">
           <li className="prevAndNext" onClick={previousPage} >Prev</li>

@@ -2,67 +2,38 @@
  import axios from "axios";
  import { useDispatch, useSelector } from "react-redux";
  import { useHistory } from "react-router-dom";
- import {getCountries, postActivity}from '../../actions/index';
+ import {getCountries, postActivity, getActivity}from '../../actions/index';
  import { Link } from "react-router-dom";
  import style from './activityCreate.module.css'
 // import Navbar from "./navbar/NavBar";
 
 
 
-
-
-function validate(input) {
-    let errors = {}
-    // const validaLetters = /^[A-Za-z ]+$/ 
-
-    if (!input.name) { //estado local no hay nada
-        errors.name = "Debe poner el nombre de la actividad! "
-    } else if ( parseInt(input.name)) {
-        errors.name = "No se puede poner numeros"
-    }
-    if (input.dificultad < 1) {
-        errors.duracion = "Debe seleccionar una dificultad"
-    }
-    if (!input.duracion) {
-        errors.duracion = "Debe completar este campo"
-    }
-    if (input.duracion < 1) {
-        errors.duracion = "Valor debe ser mayor a 1"
-    }
-    if (input.duracion > 24) {
-        errors.duracion = "Debe ser menor a 24hs"
-    }
-    if (!input.temporada) {
-        errors.temporada = "Debe seleccionar una temporada"
-    }
-    if (!input.idPais.length > 0) {
-        errors.idPais = "Debe seleccionar un Pais"
-    }
-    return errors
-}
-
-
  export default function ActivityCreate(){
      const dispatch = useDispatch()
-    const history = useHistory()
+     const history = useHistory()
      const countries = useSelector(state=>state.countries)
+     const activity = useSelector(state=>state.activity)
      const [errors, setErros] = useState({})
   //  console.log(country)
 
-    const [input, setInput] = useState({
-        name: "",
-        dificultad: 1,
-        duracion: "",
-        temporada: "",
-        idPais: [],
-        })
+  
 
-   
+  const [input, setInput] = useState({
+      name: "",
+      dificultad: 1,
+      duracion: "",
+      temporada: "",
+      idPais: [],
+    })
+    
+    let activity2 = activity?.filter((e)=>e.name.toLowerCase().includes(input.name.toLowerCase()))
+    
     //manejo de inputs
     function handleChange(e){
         setInput({
             ...input,
-            [e.target.name] : e.target.value //modifica
+            [e.target.name] : e.target.value.toLowerCase() //modifica
             
         })
        // console.log(input);
@@ -70,10 +41,12 @@ function validate(input) {
         setErros(validate({
             ...input,
              [e.target.name]: e.target.value
-        }))
+        },activity2))
+
        // console.log(input)
     }
-    console.log(input);
+   // console.log(input);
+    console.log(activity2)
 
     function handleDelete(el){
         setInput({
@@ -94,13 +67,7 @@ function validate(input) {
         }
     }
 
-    // function delCountry (e) {
-    //     let country = input.Country.filter((c) => c !== e.target.value);
-    //     setInput({
-    //         ...input,
-    //         Country: country
-    //     })
-    // }
+   
 
 
     function handleSubmit(e){
@@ -128,6 +95,7 @@ function validate(input) {
 
         useEffect(()=>{
             dispatch(getCountries());
+            dispatch(getActivity())
         },[dispatch]);
 
 
@@ -213,7 +181,7 @@ function validate(input) {
                             ))}
 
                         </select> 
-
+                        {errors.idPais && <label className={style.labelError}>{errors.idPais}</label>}
                         {/* <ul><li>{input.Country.map(el=>el + ", ")}</li></ul>  */}
                         
 
@@ -229,3 +197,34 @@ function validate(input) {
      )
     }
 
+function validate(input, activity2 = activity2) {
+    let errors = {}
+    // const validaLetters = /^[A-Za-z ]+$/ 
+
+    if (!input.name) { //estado local no hay nada
+        errors.name = "Debe poner el nombre de la actividad! "
+    } else if ( !/\S{1,15}[^0-9]/.test(input.name)) {
+        errors.name = "Nombre invalido"
+    } else if(activity2.length){
+        errors.name="La Actividad ya Existe!"
+    }    
+    if (input.dificultad < 1) {
+        errors.duracion = "Debe seleccionar una dificultad!"
+    }
+    if (!input.duracion) {
+        errors.duracion = "Debe completar este campo"
+    }
+    if (input.duracion < 1) {
+        errors.duracion = "Debe ingresar la cantidad de horas!"
+    }
+    if (input.duracion > 24) {
+        errors.duracion = "Debe ser menor a 24hs"
+    }
+    if (!input.temporada) {
+        errors.temporada = "Debe seleccionar una temporada!"
+    }
+    if (!input.idPais.length) {
+        errors.idPais = "Debe seleccionar un Pais"
+    }
+    return errors
+}

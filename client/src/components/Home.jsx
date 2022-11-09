@@ -23,8 +23,8 @@ export default function Home (){
     //paginado
     const [pagina,setPagina] = useState(1) //pagina actual
     const [porPagina,] = useState(10) //cantidad
-    const startIndex = pagina === 1 ? 0 : pagina * 10 - 10 ;  //indice del primero
-    const endIndex = pagina === 1 ? 9 : startIndex + 10;  //indice del ultimo
+    const startIndex = pagina === 1 ? 0 : pagina * 10 - 10 ;  //indice del primer pais
+    const endIndex = pagina === 1 ? 9 : startIndex + 10;  //indice del ultimo pais
     const currentCountries = allCountries.slice(startIndex,endIndex) //paises en la pagina actual
 
     const paginado = (pageNumber) => {
@@ -82,6 +82,7 @@ export default function Home (){
     return (
         // <h1>COUNTRIES EN HOME</h1>
      <div>
+         <h1  className={style.titulo}>COUNTRIES</h1>
 
          <Link to='/home'><button className={style.button} onClick={e=>{handleClick(e)}}>INICIO</button></Link>
         

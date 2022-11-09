@@ -12,7 +12,7 @@
   }
 
   .button {
-    margin-top: 80px;
+    margin-top: 10px;
     margin-left: 8px;
     justify-content: space-around;
     text-align: left;
@@ -80,5 +80,12 @@
 	background-image:  url(https://upload.wikimedia.org/wikipedia/commons/9/96/Mundo_hecho_de_Banderas.gif);
 	transform-origin: center center;
            animation: total 1.7s 1s steps(13, end) infinite;
+
+}
+
+.titulo{
+    text-shadow: 2px 0 0px #713737, 3px 2px 0px rgba(77,0,38,0.5), 3px 0 3px #200d10, 5px 0 3px #88787a, 6px 2px 3px rgba(77,0,13,0.5), 6px 0 9px #FF5500, 8px 0 9px #802A00, 9px 2px 9px rgba(77,25,0,0.5), 9px 0 18px #f0efea, 11px 0 18px #dddbdb, 12px 2px 18px rgba(139, 138, 133, 0.5), 12px 0 30px #dddbdb, 14px 0 30px #dddbdb, 15px 2px 30px rgba(226, 227, 221, 0.5), 15px 0 45px #dddbdb, 17px 0 45px #dddbdb, 17px 2px 45px rgba(197, 198, 196, 0.5), 2px -9px 6px rgba(120,23,23,0);
+    color: #c74a15;
+    font-size: 55px;
 
 }

@@ -29,31 +29,13 @@ route.post('/', async (req, res)=>{
                   temporada
                 })
 
-      // const country = await Country.findAll({
-      //   where:{
-      //     id: idPais
-      //   }
-     // })  
-      //if(country){
         await act.addCountry(idPais)
-     // }      
+          
       res.status(200).send(act)
     }catch (error){
       console.log("Eror en el post", error);
     }
-    //console.log('Actividad')
-  //   idPais.forEach((e)=>{
-  //     crearActividad(name, dificultad, duracion, temporada, e)
-  //     })
-
-  //   return res.status(201).json({
-  //         msg: `Actividad '${name} creada correctamente!`
-  //     })
-  // }else{
-  //   return res.status(400).send({
-  //       msg: "Faltan completar el formulario para agregar la actividad."
-  //   })
-  // }
+   
 })
 
 
@@ -65,5 +47,6 @@ route.get('/', async (req, res) => {
   })
   res.json(activities)
 })
+
 
 module.exports = route;

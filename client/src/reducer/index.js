@@ -42,24 +42,24 @@ function rootReducer(state = initialState, action){
                     detail: {}
                 }
 
-        case "CLEAR_DETAIL":
-            return{
-
-            }
-
-        case "POST_ACTIVITY":
-            return{
-                ...state,
-            }
-
+                
+         case "POST_ACTIVITY":
+                    return{
+                        ...state,
+                    }
+                    
         case 'FILTER_BY_CONTINENT':
-        const filterByContinent = state.copyCountries
-        const continentFiltered = action.payload === 'All' ? filterByContinent : filterByContinent.filter(e=>e.continents === action.payload)
-            return{
-                    ...state,
-                    countries: continentFiltered
-            }
-
+                        const filterByContinent = state.copyCountries
+                        const continentFiltered = action.payload === 'All' ? filterByContinent : filterByContinent.filter(e=>e.continents === action.payload)
+                        return{
+                            ...state,
+                            countries: continentFiltered
+                        }
+                        
+        case "CLEAR_DETAIL":
+             return{
+                
+                        }
         case 'GET_ACTIVITY':
             return{
                 ...state,

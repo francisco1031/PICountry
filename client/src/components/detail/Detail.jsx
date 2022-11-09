@@ -20,7 +20,7 @@ export default function Detail() {
   
     useEffect(()=>{ 
         dispatch(detailId(idPais))
-        return dispatch(clearDetail())
+     //   return dispatch(clearDetail())
         }, [dispatch]);
 
     console.log(country);
