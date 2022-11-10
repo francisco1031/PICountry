@@ -97,8 +97,3 @@ export function detailId(id){
         });
     };
   };
-
-export function clearDetail(){
-    return {
-        type: "RESET_COUNTRY"}
-}

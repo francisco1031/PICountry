@@ -2,7 +2,7 @@ import React, { Fragment } from 'react'
 import { useParams } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import style from './detail.module.css'
-import { detailId, clearDetail } from '../../actions'
+import { detailId } from '../../actions'
 import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 
@@ -20,7 +20,6 @@ export default function Detail() {
   
     useEffect(()=>{ 
         dispatch(detailId(idPais))
-     //   return dispatch(clearDetail())
         }, [dispatch]);
 
     console.log(country);

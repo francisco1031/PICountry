@@ -35,13 +35,6 @@ function rootReducer(state = initialState, action){
                     detail: action.payload
                 }
             }
-
-        case "RESET_COUNTRY":
-                return {
-                    ...state,
-                    detail: {}
-                }
-
                 
          case "POST_ACTIVITY":
                     return{

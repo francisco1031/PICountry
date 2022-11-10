@@ -87,7 +87,6 @@
     }
 
     //busqueda
-    // function handleInput(e){
     //     e.preventDefault()
     //     setName(e.target.value)
     //     console.log(name)
