@@ -51,6 +51,12 @@ export function postActivity(payload){
     }
 }
 
+export function clearDetail(){
+    return{
+        type: 'CLEAR_DETAIL'
+    }
+}
+
 
 export function filterCountryByContinent(payload){
     return{

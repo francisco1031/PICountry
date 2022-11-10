@@ -29,6 +29,12 @@ function rootReducer(state = initialState, action){
                 activity: action.payload
             }
 
+        case 'CLEAR_DETAIL':
+            return{
+                ...state,
+                detail: {}
+            }
+
         case "COUNTRY_DETAIL":{
                 return {
                     ...state,
@@ -49,10 +55,7 @@ function rootReducer(state = initialState, action){
                             countries: continentFiltered
                         }
                         
-        case "CLEAR_DETAIL":
-             return{
-                
-                        }
+        
         case 'GET_ACTIVITY':
             return{
                 ...state,
